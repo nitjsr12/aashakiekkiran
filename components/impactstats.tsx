@@ -5,50 +5,39 @@ import { useInView } from "react-intersection-observer";
 import CountUp from "react-countup";
 import { BookOpen, Users, CalendarCheck } from "lucide-react";
 
-// Animated counter component
-const AnimatedCounter = ({ value, suffix = "" }) => {
+// Define props interface for AnimatedCounter
+interface AnimatedCounterProps {
+  value: number;
+  suffix?: string;
+}
+
+// Animated counter component with proper typing
+const AnimatedCounter = ({ value, suffix = "" }: AnimatedCounterProps) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.5,
   });
-
   return (
-    <div ref={ref}>
-      {inView && (
-        <CountUp
-          end={value}
-          duration={2}
-          suffix={suffix}
-          className="text-5xl font-bold text-primary"
-        />
-      )}
+    <div ref={ref} className="text-5xl font-bold text-primary">
+      {inView ? <CountUp end={value} duration={2} suffix={suffix} /> : '0'}
     </div>
   );
 };
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6, ease: "easeOut" },
-};
-
 const statItem = {
-  initial: { opacity: 0, y: 30 },
-  animate: { opacity: 1, y: 0 },
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0 },
   hover: { y: -5 },
 };
 
 export function ImpactStats() {
   return (
     <motion.section 
-      className="py-20 bg-gradient-to-br from-secondary/5 to-primary/5"
-      initial="initial"
-      whileInView="animate"
+      className="py-20 bg-gradient-to-br from-secondary/5 to-primary/5 relative"
+      initial="hidden"
+      whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
-      variants={{
-        initial: { opacity: 0 },
-        animate: { opacity: 1, transition: { staggerChildren: 0.2 } }
-      }}
+      transition={{ staggerChildren: 0.2 }}
     >
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
