@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Search, Grid2X2, List, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image"; // Added missing import
 
 const galleryItems = [
   {
@@ -79,8 +80,8 @@ export default function GalleryPage() {
     return matchesSearch && matchesCategory;
   });
 
-  const categories = ["all", ...new Set(galleryItems.map(item => item.category))];
-
+  const categories = ["all", ...Array.from(new Set(galleryItems.map(item => item.category)))];
+  
   const openImage = (id: number) => {
     setSelectedImage(id);
     document.body.style.overflow = "hidden";
@@ -97,13 +98,11 @@ export default function GalleryPage() {
     const currentIndex = filteredItems.findIndex(item => item.id === selectedImage);
     if (currentIndex === -1) return;
 
-    if (direction === "prev") {
-      const prevIndex = (currentIndex - 1 + filteredItems.length) % filteredItems.length;
-      setSelectedImage(filteredItems[prevIndex].id);
-    } else {
-      const nextIndex = (currentIndex + 1) % filteredItems.length;
-      setSelectedImage(filteredItems[nextIndex].id);
-    }
+    const newIndex = direction === "prev" 
+      ? (currentIndex - 1 + filteredItems.length) % filteredItems.length
+      : (currentIndex + 1) % filteredItems.length;
+    
+    setSelectedImage(filteredItems[newIndex].id);
   };
 
   return (
@@ -149,7 +148,7 @@ export default function GalleryPage() {
             )}
           </div>
 
-          <div className="flex gap-2 w-full md:w-auto">
+          <div className="flex flex-wrap gap-2 w-full md:w-auto justify-center">
             {categories.map((category) => (
               <Button
                 key={category}
@@ -217,14 +216,17 @@ export default function GalleryPage() {
               whileHover={{ y: -5 }}
             >
               <Card 
-                className="overflow-hidden hover:shadow-lg transition-shadow duration-300 cursor-pointer"
+                className="overflow-hidden hover:shadow-lg transition-shadow duration-300 cursor-pointer h-full flex flex-col"
                 onClick={() => openImage(item.id)}
               >
-                <div className="aspect-square bg-muted relative overflow-hidden">
-                  {/* Replace with actual image */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-purple-500/10 flex items-center justify-center">
-                    <span className="text-muted-foreground">Image: {item.title}</span>
-                  </div>
+                <div className="aspect-square bg-muted relative overflow-hidden flex-1">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
                 </div>
                 <div className="p-4">
                   <h3 className="font-bold">{item.title}</h3>
@@ -256,11 +258,14 @@ export default function GalleryPage() {
                 onClick={() => openImage(item.id)}
               >
                 <div className="flex flex-col sm:flex-row gap-4 p-4">
-                  <div className="sm:w-1/3 aspect-video bg-muted rounded-lg overflow-hidden">
-                    {/* Replace with actual image */}
-                    <div className="w-full h-full bg-gradient-to-br from-primary/10 to-purple-500/10 flex items-center justify-center">
-                      <span className="text-muted-foreground">Image: {item.title}</span>
-                    </div>
+                  <div className="sm:w-1/3 aspect-video bg-muted rounded-lg overflow-hidden relative">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
                   </div>
                   <div className="sm:w-2/3">
                     <h3 className="font-bold text-lg">{item.title}</h3>
@@ -305,10 +310,12 @@ export default function GalleryPage() {
                     className="flex flex-col h-full"
                   >
                     <Card className="relative aspect-video bg-muted overflow-hidden">
-                      {/* Replace with actual image */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-purple-500/10 flex items-center justify-center">
-                        <span className="text-2xl text-muted-foreground">Image: {item.title}</span>
-                      </div>
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        className="object-contain"
+                      />
                     </Card>
                     
                     <Card className="mt-4 p-6">
