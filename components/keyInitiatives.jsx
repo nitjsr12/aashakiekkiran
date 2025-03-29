@@ -31,7 +31,7 @@ const initiatives = [
     icon: <School className="w-8 h-8" />,
     title: "Education Support",
     description: "Providing educational resources and mentorship to underprivileged students through our comprehensive programs.",
-    stats: "1000+ Students Helped",
+    stats: "500+ Students",
     color: "text-blue-500",
     bgColor: "bg-blue-500/10",
     link: "/education"
@@ -41,7 +41,7 @@ const initiatives = [
     icon: <HeartHandshake className="w-8 h-8" />,
     title: "Care Center Visits",
     description: "Regular visits to old age homes and orphanages to spread joy, companionship, and essential support.",
-    stats: "50+ Monthly Visits",
+    stats: "24+ Monthly Visits",
     color: "text-rose-500",
     bgColor: "bg-rose-500/10",
     link: "/care-centers"
@@ -51,7 +51,7 @@ const initiatives = [
     icon: <Utensils className="w-8 h-8" />,
     title: "Food Distribution",
     description: "Monthly food donation drives and community kitchens ensuring no one in our community goes hungry.",
-    stats: "5000+ Meals Served",
+    stats: "3000+ Meals Served",
     color: "text-amber-500",
     bgColor: "bg-amber-500/10",
     link: "/food-drives"

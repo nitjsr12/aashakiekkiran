@@ -34,8 +34,8 @@ const projects = [
     description: "Established libraries in 5 government schools, providing access to 2000+ books for underprivileged students.",
     date: "March 2023",
     status: "Completed",
-    videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-    thumbnail: "/images/library-project.jpg",
+    videoUrl: "https://youtu.be/2ThONcTu0-w",
+    thumbnail: "/images/mq4.webp",
     stats: "5 Schools • 2000+ Books"
   },
   {
@@ -44,8 +44,8 @@ const projects = [
     description: "Distributed food packages to over 500 families during the summer months when school meals weren't available.",
     date: "June 2023",
     status: "Completed",
-    videoUrl: "https://www.youtube.com/watch?v=L1v5xU375DU",
-    thumbnail: "/images/food-drive.jpg",
+    videoUrl: "https://youtu.be/AHeuz4cT0Xo",
+    thumbnail: "/images/mq2.webp",
     stats: "500+ Families • 3000 Meals"
   },
   {
@@ -54,8 +54,8 @@ const projects = [
     description: "Provided tablets and digital resources to 3 rural schools, impacting 750+ students with modern learning tools.",
     date: "September 2023",
     status: "Completed",
-    videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-    thumbnail: "/images/digital-learning.jpg",
+    videoUrl: "https://youtu.be/nGpTi3dqrpE",
+    thumbnail: "/images/mq3.webp",
     stats: "3 Schools • 750 Students"
   }
 ];
@@ -162,16 +162,6 @@ export function PreviousWorkSection() {
                       {project.stats}
                     </span>
                   </div>
-                  
-                  <Link href={`/projects/${project.id}`} className="mt-6 block">
-                    <Button 
-                      variant="ghost" 
-                      size="sm" 
-                      className="text-primary hover:bg-primary/10 w-full"
-                    >
-                      View Details <ExternalLink className="ml-2 h-4 w-4" />
-                    </Button>
-                  </Link>
                 </div>
               </Card>
             </motion.div>

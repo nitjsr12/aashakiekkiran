@@ -49,8 +49,10 @@ export default function AboutPage() {
   ];
 
   return (
-    <main className="container mx-auto px-4 py-12" ref={ref}>
+    
+    <main className="container mx-auto px-4 py-12  w-full" ref={ref}>
       {/* Hero Section */}
+      
       <motion.section 
         className="relative w-full h-[500px] overflow-hidden rounded-2xl shadow-2xl"
         initial={{ opacity: 0 }}
@@ -101,23 +103,11 @@ export default function AboutPage() {
             </span>
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-            Founded with a vision to transform lives, Aasha Ki Ek Kiran has grown from a small community initiative to a 
-            recognized force for positive change. What began as an effort to support 20 students in one Delhi neighborhood 
-            has blossomed into an organization impacting thousands across multiple states.
+          At Aasha Ki Ek Kiran, we believe that even the smallest effort can spark a ripple of change in the world. Our mission is to uplift and support the underprivileged, ensuring they receive the care and opportunities they deserve. Through our community-driven approach, we strive to make a meaningful impact in the lives of those in need.  
           </p>
           <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-            Our name, meaning "A Ray of Hope," reflects our commitment to being that guiding light for those who need it most. 
-            Every day, our team works tirelessly to turn this promise into reality through education programs, community support, 
-            and sustainable development initiatives.
+          Committed to creating a better future, we work tirelessly to provide essential services such as education, food, medical aid, and emotional support. By bringing people together and fostering a spirit of compassion, we aim to empower individuals and communities, helping them build a brighter and more hopeful tomorrow.
           </p>
-          <Link href="/our-history">
-            <Button 
-              size="lg" 
-              className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 shadow-lg hover:shadow-primary/30 transition-all group"
-            >
-              Our Journey <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </Link>
         </motion.div>
         <motion.div
           initial={{ opacity: 0, x: 50 }}
@@ -315,7 +305,7 @@ export default function AboutPage() {
           Join us in creating lasting change. Whether through volunteering, donations, or simply spreading awareness, your support matters.
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <Link href="/volunteer">
+          <Link href="/contact">
             <Button 
               size="lg" 
               className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 shadow-lg hover:shadow-primary/30 transition-all group"
@@ -323,15 +313,7 @@ export default function AboutPage() {
               Volunteer With Us <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>
-          <Link href="/donate">
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="border-primary text-primary hover:bg-primary hover:text-white"
-            >
-              Make a Donation
-            </Button>
-          </Link>
+          
         </div>
       </motion.section>
     </main>

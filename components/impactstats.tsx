@@ -52,7 +52,7 @@ export function ImpactStats() {
                 <Users className="w-8 h-8 text-primary" />
               </div>
             </div>
-            <AnimatedCounter value={1000} suffix="+" />
+            <AnimatedCounter value={500} suffix="+" />
             <p className="text-lg mt-4 font-medium text-gray-600 dark:text-gray-300">
               Students Supported
             </p>
@@ -70,7 +70,7 @@ export function ImpactStats() {
                 <BookOpen className="w-8 h-8 text-primary" />
               </div>
             </div>
-            <AnimatedCounter value={50} suffix="+" />
+            <AnimatedCounter value={10} suffix="+" />
             <p className="text-lg mt-4 font-medium text-gray-600 dark:text-gray-300">
               Schools Partnered
             </p>

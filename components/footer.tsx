@@ -178,32 +178,7 @@ export default function Footer() {
           </motion.div>
         </div>
 
-        {/* Newsletter Subscription */}
-        <motion.div 
-          className="mt-16 p-8 rounded-xl bg-gradient-to-r from-primary/5 to-secondary/5 border border-gray-200 dark:border-gray-800"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeInUp}
-        >
-          <div className="max-w-2xl mx-auto text-center">
-            <h3 className="text-2xl font-bold mb-4">Stay Updated</h3>
-            <p className="text-muted-foreground mb-6">
-              Subscribe to our newsletter to receive updates about our initiatives and events.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-              <input 
-                type="email" 
-                placeholder="Your email address" 
-                className="flex-1 px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-primary/50"
-              />
-              <button className="px-6 py-3 bg-gradient-to-r from-primary to-secondary text-white rounded-lg hover:from-primary/90 hover:to-secondary/90 transition-all shadow-lg hover:shadow-primary/30">
-                Subscribe
-              </button>
-            </div>
-          </div>
-        </motion.div>
-
+        
         {/* Copyright */}
         <motion.div 
           className="border-t border-gray-200 dark:border-gray-800 mt-12 pt-8 text-center text-muted-foreground"
@@ -223,10 +198,7 @@ export default function Footer() {
               <Link href="/terms" className="hover:text-primary transition-colors">
                 Terms of Service
               </Link>
-              <Link href="/donate" className="flex items-center text-primary font-medium">
-                <Heart className="w-4 h-4 mr-1 fill-current" />
-                Donate Now
-              </Link>
+              
             </div>
           </div>
         </motion.div>

@@ -13,14 +13,13 @@
   --gradient-end: 209, 250, 229;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 10, 10, 15;
-    --background-end-rgb: 20, 20, 30;
-    --gradient-start: 19, 78, 74;
-    --gradient-end: 6, 78, 59;
-  }
+/* Dark mode now only applies when .dark class is present */
+:root .dark {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 10, 10, 15;
+  --background-end-rgb: 20, 20, 30;
+  --gradient-start: 19, 78, 74;
+  --gradient-end: 6, 78, 59;
 }
 
 @layer base {
@@ -181,36 +180,10 @@
     @apply hidden;
   }
 }
-/* Smooth transitions */
-.transition-all {
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 300ms;
-}
 
 /* Card hover effect */
 .group:hover .group-hover\:shadow-xl {
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-}
-
-/* Gradient text for dark mode compatibility */
-.dark .text-transparent {
-  color: transparent;
-}
-.dark .bg-clip-text {
-  -webkit-background-clip: text;
-  background-clip: text;
-}
-/* Smooth transitions */
-.transition-all {
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 300ms;
-}
-
-/* Card hover effect */
-.group:hover .group-hover\:scale-110 {
-  transform: scale(1.1);
 }
 
 /* Gradient text for dark mode compatibility */
@@ -230,6 +203,8 @@
   transform: scale(1.1);
   background-color: rgba(255, 255, 255, 0.95);
 }
+
+/* Smooth transitions */
 .transition-all {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);

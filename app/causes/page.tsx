@@ -6,6 +6,8 @@ import { School, Heart, BookOpen, Users, Coffee, GraduationCap, ArrowRight } fro
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { UpcomingEventsSection} from "@/components/upcomingevents"
+
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -191,7 +193,7 @@ export default function CausesPage() {
             </motion.div>
           ))}
         </div>
-
+        <UpcomingEventsSection/>
         {/* Call to Action */}
         <motion.div 
           className="text-center mt-20"
@@ -204,7 +206,7 @@ export default function CausesPage() {
             Join us in creating meaningful change through any of our initiatives or suggest a new cause you're passionate about.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link href="/volunteer">
+            <Link href="/contact">
               <Button 
                 size="lg" 
                 className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 shadow-lg hover:shadow-primary/30 transition-all group"
@@ -212,15 +214,7 @@ export default function CausesPage() {
                 Volunteer Now <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-            <Link href="/donate">
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="border-primary text-primary hover:bg-primary hover:text-white"
-              >
-                Donate to Support
-              </Button>
-            </Link>
+            
           </div>
         </motion.div>
       </section>
